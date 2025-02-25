@@ -1,0 +1,81 @@
+services:
+    nginx:
+        build:
+            context: ./docker/nginx
+        container_name: nginx
+        volumes:
+            - .:/var/www:rw
+            - ./logs/nginx:/var/log/nginx:rw
+        ports:
+            - "81:80"
+        restart: always
+        depends_on:
+            - php
+        networks:
+            - losst-network
+
+    php:
+        build:
+            context: ./docker/php
+            args:
+                - PUID=${PUID}
+                - PGID=${PGID}
+        extra_hosts:
+            - "host.docker.internal:host-gateway"
+        container_name: php
+        restart: always
+        depends_on:
+            postgres:
+                condition: service_healthy
+        volumes:
+            - .:/var/www:cached
+            - ./vendor:/var/www/vendor
+        networks:
+            - losst-network
+        ports:
+            - "9000:9000"
+        environment:
+            DATABASE_URL: "postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB}?serverVersion=15&charset=utf8"
+
+    postgres:
+        build:
+            context: ./docker/postgres
+        container_name: postgres
+        restart: always
+        environment:
+            - POSTGRES_DB=${POSTGRES_DB}
+            - POSTGRES_USER=${POSTGRES_USER}
+            - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+        ports:
+            - ${POSTGRES_HOST_PORT}:5432
+        volumes:
+            - db_data:/var/lib/postgresql/data:rw
+        networks:
+            - losst-network
+        healthcheck:
+            test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
+            interval: 5s
+            timeout: 5s
+            retries: 5
+
+    vue:
+        build:
+            context: .
+            dockerfile: docker/vue/Dockerfile
+        container_name: vue
+        ports:
+            - "443:443"
+            - "80:80"
+        networks:
+            - losst-network
+        depends_on:
+            - php
+        environment:
+            - VUE_APP_API_URL=/api/graphql
+
+networks:
+    losst-network:
+        driver: bridge
+
+volumes:
+    db_data:
