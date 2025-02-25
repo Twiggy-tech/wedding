@@ -1,0 +1,32 @@
+type Query {
+    guest(token: String!): Guest
+}
+
+type Guest {
+    id: ID!
+    firstName: String!
+    surname: String!
+    token: String!
+    willAttend: Boolean
+    willAttendMainCeremony: Boolean
+    gender: GuestGenderEnum!
+}
+
+enum GuestGenderEnum {
+    MAN,
+    WOMAN,
+    MULTIPLE,
+}
+
+type Mutation {
+    editGuest(input: EditGuestInput!): EditGuestPayload!
+}
+
+input EditGuestInput {
+    id: ID!
+    willAttend: Boolean
+}
+
+type EditGuestPayload {
+    guest: Guest
+}

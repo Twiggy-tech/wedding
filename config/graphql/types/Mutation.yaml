@@ -1,0 +1,22 @@
+Mutation:
+  type: object
+  config:
+    fields:
+      editGuest:
+        type: EditGuestPayload!
+        args:
+          input: EditGuestInput!
+        resolve: '@=mutation("App\\Mutations\\GuestMutation::editGuest", args)'
+
+EditGuestPayload:
+  type: object
+  config:
+    fields:
+      guest: Guest
+
+EditGuestInput:
+  type: input-object
+  config:
+    fields:
+      id: ID!
+      willAttend: Boolean

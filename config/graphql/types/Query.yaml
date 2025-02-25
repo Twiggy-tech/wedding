@@ -1,0 +1,32 @@
+Query:
+    type: object
+    config:
+        fields:
+            guest:
+                type: Guest
+                args:
+                    token: String!
+                resolve: '@=query("App\\Resolvers\\GuestResolver::guest", args)'
+
+Guest:
+    type: object
+    config:
+        fields:
+            id: ID!
+            firstName: String!
+            surname: String!
+            token: String!
+            willAttend: Boolean
+            willAttendMainCeremony: Boolean
+            gender: GuestGenderEnum!
+
+GuestGenderEnum:
+    type: enum
+    config:
+        values:
+            MAN:
+                value: 'man'
+            WOMAN:
+                value: 'woman'
+            MULTIPLE:
+                value: 'multiple'

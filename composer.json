@@ -11,12 +11,14 @@
         "doctrine/doctrine-bundle": "^2.13",
         "doctrine/doctrine-migrations-bundle": "^3.4",
         "doctrine/orm": "^3.3",
+        "overblog/graphql-bundle": "^1.7",
         "symfony/console": "7.2.*",
         "symfony/dotenv": "7.2.*",
         "symfony/flex": "^2",
         "symfony/framework-bundle": "7.2.*",
         "symfony/runtime": "7.2.*",
-        "symfony/yaml": "7.2.*"
+        "symfony/yaml": "7.2.*",
+        "webonyx/graphql-php": "^15.19"
     },
     "config": {
         "allow-plugins": {
@@ -70,6 +72,7 @@
     },
     "require-dev": {
         "doctrine/doctrine-fixtures-bundle": "^4.0",
+        "overblog/graphiql-bundle": "^1.0",
         "symfony/maker-bundle": "^1.62"
     }
 }
