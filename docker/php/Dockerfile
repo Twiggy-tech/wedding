@@ -41,7 +41,7 @@ RUN chown -R www-data:www-data /var/www
 RUN chmod -R 777 /var/www
 
 # Установка зависимостей и сборка фронтенда
-USER www-data
+#USER www-data
 WORKDIR /var/www
 
 # Запуск PHP-FPM
