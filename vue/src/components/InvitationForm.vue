@@ -391,4 +391,10 @@ const onClick = async (willAttend: boolean) => {
         height: 800px;
     }
 }
+
+@media (max-width: 400px) {
+  .form_container {
+    height: 1000px;
+  }
+}
 </style>
