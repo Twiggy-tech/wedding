@@ -1,7 +1,6 @@
 # Stage 1: Build
 FROM node:18 as build
 WORKDIR /app
-RUN npm init -y
 COPY vue/package*.json ./
 RUN npm install
 RUN npm install axios vue-router@4 sass bootstrap @popperjs/core bootstrap-icons pinia
