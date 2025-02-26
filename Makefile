@@ -17,6 +17,9 @@ endif
 
 PHP_CONSOLE_DEPS=vendor .env
 
+.PHONY: quick-start
+quick-start: start db-create db-migrate db-fill  ## быстрый запуск проекта с нуля
+
 .PHONY: start
 start: up $(PHP_CONSOLE_DEPS)
 
@@ -35,6 +38,9 @@ db-create: $(PHP_CONSOLE_DEPS)
 
 db-migrate: $(PHP_CONSOLE_DEPS)
 	@$(PHP) bin/console doctrine:migrations:migrate -n
+
+db-fill: $(PHP_CONSOLE_DEPS)
+	@$(PHP) bin/console doctrine:fixtures:load
 
 FIXER_CMD=vendor/bin/php-cs-fixer fix
 
