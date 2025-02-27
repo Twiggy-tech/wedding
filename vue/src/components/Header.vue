@@ -17,7 +17,7 @@
                                 <div :class="$style.header__line_vertical"></div>
                             </div>
 
-                            <div class="col-10" :class="$style.text_right" style="z-index: 10">
+                            <div class="col-10" style="z-index: 10">
                                 <h1 :class="$style.header__title">Давайте вместе отметим наш важный день — ваше присутствие сделает его по-настоящему особенным!</h1>
                             </div>
                         </div>
@@ -123,10 +123,6 @@
         background-color: rgb(255, 255, 255);
         height: 100%;
     }
-}
-
-.text_right {
-    text-align: right;
 }
 
 @media (max-width: 1400px) {
