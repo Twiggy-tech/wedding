@@ -7,6 +7,9 @@ Query:
                 args:
                     token: String!
                 resolve: '@=query("App\\Resolvers\\GuestResolver::guest", args)'
+            drinks:
+                type: '[Drink!]'
+                resolve: '@=query("App\\Resolvers\\DrinkResolver::drinks")'
 
 Guest:
     type: object
@@ -30,3 +33,10 @@ GuestGenderEnum:
                 value: 'woman'
             MULTIPLE:
                 value: 'multiple'
+
+Drink:
+    type: object
+    config:
+        fields:
+            id: ID!
+            name: String!

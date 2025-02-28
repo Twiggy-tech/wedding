@@ -7,6 +7,11 @@ Mutation:
         args:
           input: EditGuestInput!
         resolve: '@=mutation("App\\Mutations\\GuestMutation::editGuest", args)'
+      selectDrinks:
+        type: SelectDrinksPayload!
+        args:
+          input: SelectDrinksInput!
+        resolve: '@=mutation("App\\Mutations\\DrinkMutation::select", args)'
 
 EditGuestPayload:
   type: object
@@ -20,3 +25,16 @@ EditGuestInput:
     fields:
       id: ID!
       willAttend: Boolean
+
+SelectDrinksPayload:
+  type: object
+  config:
+    fields:
+      success: Boolean
+
+SelectDrinksInput:
+  type: input-object
+  config:
+    fields:
+      guestId: ID!
+      drinkIds: '[ID!]'

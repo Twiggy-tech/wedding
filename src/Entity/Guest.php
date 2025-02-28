@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\GuestRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: GuestRepository::class)]
@@ -20,19 +22,19 @@ class Guest
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $token = null;
 
-    public function __construct(
-        #[ORM\Column(length: 255)]
-        private ?string $firstName,
+    /**
+     * @var Collection<int, Drink>
+     */
+    #[ORM\ManyToMany(targetEntity: Drink::class)]
+    private Collection $preferredDrinks;
 
-        #[ORM\Column(length: 255)]
-        private ?string $surname,
-
-        #[ORM\Column(nullable: true)]
-        private ?bool $willAttendMainCeremony = null,
-
-        #[ORM\Column(length: 255, nullable: true)]
-        private ?string $gender = null,
-    ) {
+    public function __construct(#[ORM\Column(length: 255)]
+    private ?string $firstName, #[ORM\Column(length: 255)]
+    private ?string $surname, #[ORM\Column(nullable: true)]
+    private ?bool $willAttendMainCeremony = null, #[ORM\Column(length: 255, nullable: true)]
+    private ?string $gender = null)
+    {
+        $this->preferredDrinks = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -108,6 +110,43 @@ class Guest
     public function setGender(?string $gender): static
     {
         $this->gender = $gender;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Drink>
+     */
+    public function getPreferredDrinks(): Collection
+    {
+        return $this->preferredDrinks;
+    }
+
+    /**
+     * @param array $drinks
+     * @return Guest
+     */
+    public function setPreferredDrinks(array $drinks): static
+    {
+        foreach ($drinks as $drink) {
+            $this->preferredDrinks->add($drink);
+        }
+
+        return $this;
+    }
+
+    public function addPreferredDrink(Drink $preferredDrink): static
+    {
+        if (!$this->preferredDrinks->contains($preferredDrink)) {
+            $this->preferredDrinks->add($preferredDrink);
+        }
+
+        return $this;
+    }
+
+    public function removePreferredDrink(Drink $preferredDrink): static
+    {
+        $this->preferredDrinks->removeElement($preferredDrink);
 
         return $this;
     }
