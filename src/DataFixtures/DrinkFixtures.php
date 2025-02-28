@@ -9,7 +9,7 @@ use Doctrine\Persistence\ObjectManager;
 class DrinkFixtures extends Fixture
 {
     private const DRINKS = [
-        'Ничего',
+        'Я люблю безалкогольные напитки',
         'Шампанское',
         'Белое вино',
         'Красное вино',

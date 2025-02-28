@@ -13,6 +13,7 @@ export default async (token: string) => {
                 "        willAttend\n" +
                 "        willAttendMainCeremony\n" +
                 "        gender\n"+
+                "        preferredDrinks { id name }\n"+
                 "    }\n" +
                 "}",
             variables: { token },

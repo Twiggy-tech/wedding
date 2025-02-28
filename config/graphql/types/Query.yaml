@@ -22,6 +22,7 @@ Guest:
             willAttend: Boolean
             willAttendMainCeremony: Boolean
             gender: GuestGenderEnum!
+            preferredDrinks: '[Drink!]'
 
 GuestGenderEnum:
     type: enum

@@ -326,6 +326,7 @@ const onClick = async (willAttend: boolean) => {
 }
 
 .form {
+    box-shadow: 0 4px 12px #00000014;
     border-radius: 2px;
     border: 2px solid rgba(255, 255, 255, 0.5);
     background-image: url("../../images/rsvp-bg.jpg");

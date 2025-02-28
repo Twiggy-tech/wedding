@@ -1,5 +1,5 @@
 <template>
-    <section :class="$style.faqSection">
+    <div :class="$style.faqSection">
         <div class="container">
             <h2 :class="$style.faqTitle">Частые вопросы</h2>
 
@@ -23,7 +23,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 </template>
 
 <script setup lang="ts">

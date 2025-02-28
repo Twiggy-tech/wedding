@@ -6,7 +6,7 @@ interface State {
     guest: Guest | null
 }
 
-export const useGuestStore = defineStore('', {
+export const useGuestStore = defineStore('guest', {
     state: (): State => ({
         guest: null,
     }),

@@ -3,6 +3,7 @@
     <WeddingCountdown />
     <WeddingEvents />
     <InvitationForm />
+    <DrinkSelector v-if="!guestStore.guest?.preferredDrinks?.length"/>
     <FAQ />
     <Footer />
 </template>
@@ -14,4 +15,8 @@ import Header from '@/components/Header.vue'
 import Footer from '@/components/Footer.vue'
 import InvitationForm from '@/components/InvitationForm.vue'
 import FAQ from '@/components/FAQ.vue'
+import DrinkSelector from '@/components/DrinkSelector.vue'
+import { useGuestStore } from '@/stores/guestStore.ts'
+
+const guestStore = useGuestStore()
 </script>

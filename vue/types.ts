@@ -6,6 +6,7 @@ export type Guest = {
     willAttend: boolean,
     willAttendMainCeremony: boolean,
     gender: GuestGenderEnum
+    preferredDrinks: Drink[]
 }
 
 export enum GuestGenderEnum {
@@ -17,4 +18,14 @@ export enum GuestGenderEnum {
 export type EditGuestInput = {
     id: number,
     willAttend: boolean,
+}
+
+export type Drink = {
+    id: number,
+    name: string,
+}
+
+export type SelectDrinksInput = {
+    guestId: number,
+    drinkIds: number[],
 }
