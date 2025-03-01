@@ -28,7 +28,7 @@
                     <div class="container h-100">
                         <div class="row h-100 align-items-center">
                             <div class="col-12" style="z-index: 10">
-                                <img :class="$style.header__image" src="@/../images/header.jpg" alt="Photo" />
+                                <img :class="$style.header__image" src="@/../images/header.webp" alt="Photo" />
                             </div>
                         </div>
                     </div>
@@ -79,7 +79,7 @@
     height: 900px;
     position: relative;
     width: 100%;
-    background-image: url("@/../images/header-bg.jpg");
+    background-image: url("@/../images/header-bg.webp");
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;

@@ -4,7 +4,11 @@
             <div class="col">
                 <div class="container mt-5">
                     <div class="row justify-content-center">
-                        <div class="col-8">
+                        <div
+                            class="col-xxl-8 col-xl-9 col-lg-10"
+                            data-aos="zoom-out-left"
+                            data-aos-duration="1000"
+                        >
                             <div
                                 class="container-fluid"
                                 v-if="!answerAccepted" :class="$style.selector"
@@ -124,7 +128,7 @@ const onClick = () => {
 
 .title {
     font-family: 'Playfair Display', serif;
-    font-size: 2.5rem;
+    font-size: 2rem;
     text-align: center;
     color: #b76e79;
     margin-bottom: 2.5rem;

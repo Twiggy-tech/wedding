@@ -19,7 +19,11 @@
                 </div>
             </div>
 
-            <div class="col-lg-6 col-md-12 mt-5 mb-5">
+            <div
+                data-aos="zoom-in-up"
+                data-aos-duration="1000"
+                class="col-lg-6 col-md-12 mt-5 mb-5"
+            >
                 <div class="container">
                     <div class="row justify-content-center">
                         <div

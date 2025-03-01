@@ -71,7 +71,7 @@ const isVisibleEvent = (isMainCeremony: boolean) => {
 <style module lang="scss">
 .events {
     position: relative;
-    background-image: url("../../../images/events-bg.jpg");
+    background-image: url("../../../images/events-bg.webp");
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;

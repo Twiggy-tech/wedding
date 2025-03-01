@@ -1,10 +1,19 @@
 <template>
-    <div class="container-fluid" :class="$style.form_container">
+    <div
+        class="container-fluid"
+        :class="$style.form_container"
+    >
         <div class="row h-100 align-items-center">
             <div class="col">
                 <div class="container">
                     <div class="row justify-content-center">
-                        <div class="col-xl-6 col-lg-8 col-md-12" :class="$style.form">
+                        <div
+                            class="col-xxl-8 col-xl-9 col-lg-10"
+                            :class="$style.form"
+                            data-aos="zoom-out-up"
+                            data-aos-easing="ease-out-cubic"
+                            data-aos-duration="1000"
+                        >
                             <div
                                 v-if="answerAccepted"
                                 class="container"
@@ -318,7 +327,7 @@ const onClick = async (willAttend: boolean) => {
 <style module lang="scss">
 .form_container {
     position: relative;
-    background-image: url("../../images/guest-page-bg.jpg");
+    background-image: url("../../images/guest-page-bg.webp");
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -329,7 +338,7 @@ const onClick = async (willAttend: boolean) => {
     box-shadow: 0 4px 12px #00000014;
     border-radius: 2px;
     border: 2px solid rgba(255, 255, 255, 0.5);
-    background-image: url("../../images/rsvp-bg.jpg");
+    background-image: url("../../images/rsvp-bg.webp");
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;

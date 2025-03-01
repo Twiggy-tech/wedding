@@ -1,5 +1,9 @@
 <template>
-    <div class="h-100" :class="$style.card">
+    <div
+        class="h-100"
+        data-aos="zoom-in-up"
+        data-aos-duration="1000"
+        :class="$style.card">
         <div class="row">
             <div class="col">
                 <h3 :class="$style.card__title">{{ props.title }}</h3>
