@@ -29,10 +29,16 @@ class GuestFixtures extends Fixture
             'gender' => GuestGenderEnum::Woman->value,
         ],
         [
-            'firstName' => 'Евгений',
-            'surname' => 'Самойлов',
+            'firstName' => 'Евгений и Светлана',
+            'surname' => 'Самойловы',
             'willAttendMainCeremony' => true,
-            'gender' => GuestGenderEnum::Man->value,
+            'gender' => GuestGenderEnum::Multiple->value,
+        ],
+        [
+            'firstName' => 'Владимир и Яна',
+            'surname' => 'Самойловы',
+            'willAttendMainCeremony' => false,
+            'gender' => GuestGenderEnum::Multiple->value,
         ],
         [
             'firstName' => 'Олег',
