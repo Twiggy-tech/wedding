@@ -7,8 +7,6 @@
                 <div
                     v-for="(item, index) in items"
                     :key="index"
-                    data-aos="fade-up"
-                    data-aos-duration="1000"
                     :class="[$style.faqItem, { [$style.active]: activeIndex === index }]"
                     @click="toggleAccordion(index)"
                 >
